@@ -1,10 +1,25 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
-class HomeController extends Controllers
+use Illuminate\Routing\Controller;
+
+class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $categories = Category::all();
+        return $categories;
     }
+
+    public function show($id)
+    {
+        $category = Category::find($id);
+        return $category;
+    }
+
     public function create(){
     }
     public function store(){
